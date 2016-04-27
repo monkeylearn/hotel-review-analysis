@@ -1,8 +1,6 @@
 import scrapy
 from hotel_sentiment.items import HotelSentimentItem
 
-MAX_ITEMS = 15000
-
 #TODO use loaders
 class TripadvisorSpider(scrapy.Spider):
     name = "tripadvisor"
