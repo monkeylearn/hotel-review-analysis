@@ -6,6 +6,7 @@ from hotel_sentiment.items import BookingReviewItem
 class BookingSpider(scrapy.Spider):
     name = "booking_singlehotel"
     start_urls = [
+        #http://www.booking.com/hotel/us/new-york-inn.html,
         #add your url here
     ]
 
