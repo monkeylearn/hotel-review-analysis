@@ -2,11 +2,13 @@ import scrapy
 from hotel_sentiment.items import TripAdvisorReviewItem
 
 #TODO use loaders
+#to run this use scrapy crawl tripadvisor_more -a start_url="http://some_url"
 class TripadvisorSpiderMoreinfo(scrapy.Spider):
     name = "tripadvisor_more"
-    start_urls = [
-        "https://www.tripadvisor.com/Hotels-g60763-New_York_City_New_York-Hotels.html"
-    ]
+
+    def __init__(self, *args, **kwargs):
+        super(TripadvisorSpiderMoreinfo, self).__init__(*args, **kwargs)
+        self.start_urls = [kwargs.get('start_url')]
 
     def parse(self, response):
         for href in response.xpath('//div[@class="listing_title"]/a/@href'):
