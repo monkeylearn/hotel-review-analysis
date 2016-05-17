@@ -13,6 +13,24 @@ class HotelSentimentItem(scrapy.Item):
     content = scrapy.Field()
     stars = scrapy.Field()
 
+class TripAdvisorReviewItem(scrapy.Item):
+    title = scrapy.Field()
+    content = scrapy.Field()
+    review_stars = scrapy.Field()
+
+    reviewer_location = scrapy.Field()
+
+    city = scrapy.Field()
+
+    hotel_name = scrapy.Field()
+    hotel_url = scrapy.Field()
+    hotel_classs = scrapy.Field()
+    hotel_address = scrapy.Field()
+    hotel_locality = scrapy.Field()
+    hotel_review_stars = scrapy.Field()
+    hotel_review_qty = scrapy.Field()
+
+
 class BookingReviewItem(scrapy.Item):
     title = scrapy.Field()
     score = scrapy.Field()

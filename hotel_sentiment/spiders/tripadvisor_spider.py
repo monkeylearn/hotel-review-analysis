@@ -19,7 +19,7 @@ class TripadvisorSpider(scrapy.Spider):
             yield scrapy.Request(url, self.parse)
 
     def parse_hotel(self, response):
-        for href in response.xpath('//div[@class="quote"]/a/@href'):
+        for href in response.xpath('//div[starts-with(@class,"quote")]/a/@href'):
             url = response.urljoin(href.extract())
             yield scrapy.Request(url, callback=self.parse_review)
 
