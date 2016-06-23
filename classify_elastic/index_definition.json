@@ -1,0 +1,32 @@
+{
+    "mappings": {
+        "review" : {
+            "properties": {
+                "city": {"type": "string", "index" : "not_analyzed"},
+                "hotel_locality": {"type": "string"},
+                "reviewer_location": {"type": "string"},
+                "hotel_url": {"type": "string", "index" : "not_analyzed" },
+                "title": {"type": "string", "index" : "not_analyzed" },
+                "content": {"type": "string", "index" : "not_analyzed" },
+                "hotel_address": {"type": "string"},
+                "hotel_class": {"type": "float"},
+                "hotel_review_stars": {"type": "float" },
+                "hotel_review_qty": {"type": "integer"},
+                "review_stars": {"type": "float"},
+                "hotel_name": {"type": "string", "index" : "not_analyzed"}
+            }
+        },
+        "opinion_unit": {
+            "properties": {
+                "review_key": {"type": "string"},
+                "content": {"type": "string", "index" : "not_analyzed" },
+                "sentiment": {"type": "string"},
+                "topic": {"type": "string"},
+		"sent_probability": {"type": "float"}
+            },
+            "_parent": {
+                "type": "review"
+          }
+       }
+    }
+}

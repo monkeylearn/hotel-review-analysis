@@ -1,0 +1,56 @@
+search:
+{
+    "query": {
+        "filtered": {
+            "query": {
+                "range": {
+                    "sent_probability": {
+                        "gt": "0.501"
+                    }
+                }
+            },
+            "filter": {
+                "has_parent": {
+                    "type": "review",
+                    "query": {
+                        "match_all": {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+Buckets:
+
+split bars:
+	Aggregation: Terms
+	Field: sentiment
+	Order: Descending
+	Size: 2
+
+X-Axis:
+	Sub Aggregation: Filters
+	One filter per hotel class, for example 3 star hotels:
+{
+    "query": {
+        "filtered": {
+            "query": {
+                "match_all": {}
+            },
+            "filter": {
+                "has_parent": {
+                    "type": "review",
+                    "query": {
+                        "range": {
+                            "hotel_class": {
+                                "gte": "3",
+                                "lt": "4"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

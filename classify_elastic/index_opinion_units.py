@@ -5,7 +5,7 @@ import json
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
-#filename = "opinion_units_keys_tripadvisor_bangkok.csv"
+#filename = "classified_opinion_units_keys_tripadvisor_bangkok.csv"
 #takes two arguments:
 #   the name of the file to index
 #   the starting index for the id
