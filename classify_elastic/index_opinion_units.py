@@ -9,6 +9,7 @@ from elasticsearch import helpers
 #takes two arguments:
 #   the name of the file to index
 #   the starting index for the id
+#       the ids shouldn't overlap or you will replace existing opinion units
 #IMPORTANT: before indexing opinion units you must index the parent reviews
 filename =  sys.argv[1]
 cont_id = int(sys.argv[2])
