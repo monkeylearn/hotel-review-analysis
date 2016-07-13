@@ -3,6 +3,7 @@ from hotel_sentiment.items import TripAdvisorReviewItem
 
 #TODO use loaders
 #to run this use scrapy crawl tripadvisor_more -a start_url="http://some_url"
+#for example, scrapy crawl tripadvisor_more -a start_url="https://www.tripadvisor.com/Hotels-g186338-London_England-Hotels.html" -o tripadvisor_london.csv
 class TripadvisorSpiderMoreinfo(scrapy.Spider):
     name = "tripadvisor_more"
 
