@@ -16,7 +16,7 @@ scrapy crawl tripadvisor -o itemsTripadvisor.csv -s CLOSESPIDER_ITEMCOUNT=15000
 ```
 You can check out the generated machine learning sentiment analysis model [here](https://app.monkeylearn.com/categorizer/projects/cl_rZ2P7hbs/tab/main-tab).
 
-### [Getting actionable insights from reviews using Machine Learning - Part 1](https://blog.monkeylearn.com/getting-actionable-insights-from-reviews-using-machine-learning-part1/)
+### [GAspect Analysis from reviews using Machine Learning](https://blog.monkeylearn.com/aspect-analysis-from-reviews-using-machine-learning/)
 
 The Booking spider (hotel_sentiment/spider/booking_spider.py) is used to gather data to train an aspect classifier in MonkeyLearn. The data obtained with this spider can be manually tagged with each aspect (eg: cleanliness, comfort & facilities, food, internet, location, staff, value for money) using MonkeyLearn's Sample tab or an external crowd sourcing service like Mechanical Turk.
 
@@ -36,7 +36,7 @@ scrapy crawl booking_singlehotel -o <hotel name>.csv
 
 You can check out the generated machine learning aspect classifier [here](https://app.monkeylearn.com/categorizer/projects/cl_TKb7XmdG/tab/main-tab).
 
-### Getting actionable insights from reviews using Machine Learning - Part 2
+### [Machine Learning over 1M hotel reviews finds interesting insights](https://blog.monkeylearn.com/machine-learning-1m-hotel-reviews-finds-interesting-insights/)
 
 To crawl from Tripadvisor use:
 ```sh
