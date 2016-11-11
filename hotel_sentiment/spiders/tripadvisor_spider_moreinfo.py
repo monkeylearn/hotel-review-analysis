@@ -37,7 +37,8 @@ class TripadvisorSpiderMoreinfo(scrapy.Spider):
     def parse_review(self, response):
         item = TripAdvisorReviewItem()
         item['title'] = response.xpath('//div[@class="quote"]/text()')[0].extract()[1:-1] #strip the quotes (first and last char)
-        item['content'] = response.xpath('//div[@class="entry"]/p/text()').extract()[0]
+        # Get all of the lines for just this review.
+        item['content'] = '\n'.join([line.strip() for line in response.xpath('(//div[@class="entry"])[1]//p/text()').extract()])
         item['review_stars'] = response.xpath('//span[@class="rate sprite-rating_s rating_s"]/img/@alt').extract()[0]
 
         try:
