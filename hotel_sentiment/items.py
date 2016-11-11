@@ -18,6 +18,9 @@ class TripAdvisorReviewItem(scrapy.Item):
     content = scrapy.Field()
     review_stars = scrapy.Field()
 
+    reviewer_id = scrapy.Field()
+    reviewer_name = scrapy.Field()
+    reviewer_level = scrapy.Field()
     reviewer_location = scrapy.Field()
 
     city = scrapy.Field()

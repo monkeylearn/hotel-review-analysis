@@ -37,10 +37,18 @@ class TripadvisorSpiderMoreinfo(scrapy.Spider):
     def parse_review(self, response):
         item = TripAdvisorReviewItem()
         item['title'] = response.xpath('//div[@class="quote"]/text()')[0].extract()[1:-1] #strip the quotes (first and last char)
-        item['content'] = response.xpath('//div[@class="entry"]/p/text()').extract()[0]
+        # Get all of the lines for just this review.
+        item['content'] = '\n'.join([line.strip() for line in response.xpath('(//div[@class="entry"])[1]//p/text()').extract()])
         item['review_stars'] = response.xpath('//span[@class="rate sprite-rating_s rating_s"]/img/@alt').extract()[0]
 
-        item['reviewer_location'] = response.xpath('//div[@class="location"]/text()')[0].extract()[1:-1]
+        try:
+            item['reviewer_id'] = response.xpath('//div[@class="memberOverlayLink"]/@id').extract()[0]
+            item['reviewer_name'] = response.xpath('//div[contains(@class, "username")]/span/text()').extract()[0]
+            item['reviewer_level'] = response.xpath('//div[contains(@class, "levelBadge")]/@class').extract()[0].split()[-1]
+            item['reviewer_location'] = response.xpath('//div[@class="location"]/text()')[0].extract()[1:-1]
+        except:
+            # Not all reviews have a logged in reviewer
+            pass
 
         item['city'] = response.xpath('//li[starts-with(@class,"breadcrumb_item")]/a/span/text()')[-3].extract()
 
