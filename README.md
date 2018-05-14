@@ -2,6 +2,8 @@
 
 This is the source code of MonkeyLearn's series of posts related to analyzing sentiment and aspects from hotel reviews using machine learning models. This code runs in python2.7.
 
+(May 2018 update -- TripAdvisor and Booking.com have changed their sites greatly since these spiders were written, and as such, they no longer work. The blog posts and code are still very useful as an example on how to build a Scrapy spider, but sadly, the examples themselves are no longer functional. We will probably fix the spiders in the future, since it's probably enough to update all the selectors to get everything working again.)
+
 ### Code organization
 
 The project itself is a Scrapy project that is used to gather training and testing data from different sites like TripAdvisor and Booking. Besides, there are a series of Python scripts and Jupyter notebooks that implement some necessary scripts.
